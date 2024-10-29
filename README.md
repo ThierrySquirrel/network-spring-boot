@@ -88,6 +88,5 @@ thierrysquirrel.write-timeout= #Write Timeout
  }
  ```
  
-![Russian flag](https://user-images.githubusercontent.com/49895274/190372706-f367a604-87ce-4577-a941-4f5850cb4246.png)
 
  

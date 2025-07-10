@@ -17,17 +17,17 @@
 <!--在pom.xml中添加依赖-->
         <dependency>
             <artifactId>network-spring-boot-starter</artifactId>
-            <groupId>com.github.thierrysquirrel</groupId>
-            <version>2.3.1.4-RELEASE</version>
+            <groupId>io.github.thierrysquirrel</groupId>
+            <version>2.4.0.0-RELEASE</version>
         </dependency>
 ``` 
  ### 配置文件
  
  ```properties
  ## application.properties
-thierrysquirrel.connect-timeout= #连接超时
-thierrysquirrel.read-timeout= #读超时
-thierrysquirrel.write-timeout= #写超时
+network.connect-timeout= #连接超时
+network.read-timeout= #读超时
+network.write-timeout= #写超时
  ```
 # 启动Network
 ```java

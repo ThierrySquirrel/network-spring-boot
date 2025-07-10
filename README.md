@@ -17,17 +17,17 @@ Support function：
 <!--Adding dependencies to pom. XML-->
         <dependency>
             <artifactId>network-spring-boot-starter</artifactId>
-            <groupId>com.github.thierrysquirrel</groupId>
-            <version>2.3.1.4-RELEASE</version>
+            <groupId>io.github.thierrysquirrel</groupId>
+            <version>2.4.0.0-RELEASE</version>
         </dependency>
 ```  
  ### configuration file
  
  ```properties
  ## application.properties
-thierrysquirrel.connect-timeout= #Connect Timeout
-thierrysquirrel.read-timeout= #Read Timeout
-thierrysquirrel.write-timeout= #Write Timeout
+network.connect-timeout= #Connect Timeout
+network.read-timeout= #Read Timeout
+network.write-timeout= #Write Timeout
  ```
  # Start Network
  ```java

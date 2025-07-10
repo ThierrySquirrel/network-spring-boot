@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.thierrysquirrel</groupId>
+    <groupId>io.github.thierrysquirrel</groupId>
     <artifactId>network-spring-boot</artifactId>
     <packaging>pom</packaging>
-    <version>2.3.1.4-RELEASE</version>
+    <version>2.4.0.0-RELEASE</version>
 
     <name>network-spring-boot</name>
     <description>network-spring-boot</description>
@@ -16,7 +16,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.5</version>
+        <version>2.7.18</version>
         <relativePath/>
     </parent>
 
@@ -27,12 +27,13 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2021.0.1</spring-cloud.version>
-        <guava.version>31.1-jre</guava.version>
-        <gson.version>2.9.0</gson.version>
-        <okhttp.version>4.9.3</okhttp.version>
-        <maven.gpg.plugin>3.0.1</maven.gpg.plugin>
-        <maven.javadoc.plugin>3.3.2</maven.javadoc.plugin>
+        <spring-cloud.version>2021.0.9</spring-cloud.version>
+        <guava.version>33.4.8-jre</guava.version>
+        <gson.version>2.13.1</gson.version>
+        <okhttp.version>4.12.0</okhttp.version>
+        <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -60,12 +61,12 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.github.thierrysquirrel</groupId>
+                <groupId>io.github.thierrysquirrel</groupId>
                 <artifactId>network-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.thierrysquirrel</groupId>
+                <groupId>io.github.thierrysquirrel</groupId>
                 <artifactId>network-spring-boot-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -98,19 +99,6 @@
         <tag>v${project.version}</tag>
     </scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <name>Maven Central Staging Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-
     <build>
         <plugins>
 
@@ -125,7 +113,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.plugin}</version>
+                <version>${maven-javadoc-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -139,7 +127,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>${maven.gpg.plugin}</version>
+                <version>${maven-gpg-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -149,6 +137,15 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh-staging-api</publishingServerId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
